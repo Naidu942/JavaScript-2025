@@ -1,0 +1,107 @@
+1. var :
+-> introduced in ecma script.
+-> scope : funtional scope.
+-> redeclaration and reassignment is allowed.
+-> hoisted variables are moved to top of the code, but not initialized.
+
+ex : var a=0;
+     var a =1;
+    a = 10;
+
+function x(){
+  
+  if (true){
+    var z = 22;
+  }
+    console.log(z); // 22
+}
+
+disadvantages:
+-> lack of block scope leads to unexpected behaviours.
+-> redeclaration can accidentally overwrite variables.
+
+ex : 
+-> for(var i=0;i<3;i++){
+  setTimeOut(()=>console.log(i),1000); // 3 3 3
+}
+  due to functional scope, i with same reference goes to i=3 and stop iterating. prints 3 after 1 secs upto 3 times.
+
+  for(let i=0;i<3;i++){
+    setTimeOut(()=>console.log(i),1000); // 0 1 2
+  }
+
+    let is block scope, so 'i' returns new variable at every time.
+
+
+2. let :
+-> it overcomes the disadvantages of var .
+-> introduced in ECMA ES6 version.
+-> scope : block scope.
+-> reassign is allowed but not redeclaration.
+-> hoisting id done , but variables are not initialised.
+
+ex : 
+    let v=1;
+    let v= 8; // not allowed
+    v= 10 ;
+
+  function x(){
+    
+    if (true){
+      let y =7;
+      
+    }
+      console.log(y); // y is not defined
+  }
+
+3. const :
+-> introduced in ECMA ES6 version.
+-> scope : block scope.
+-> reassign and redeclare are not allowed.
+-> declarations are hoisted , but not initialized. 
+-> immutable binding. reference of a variable can't change. but for arrays or objects , content can be changed.
+
+ex : 
+
+  // Block Scope
+function testConst() {
+  if (true) {
+    const x = 10;
+    console.log(x); // 10
+  }
+  // console.log(x); // ReferenceError: x is not defined
+}
+testConst();
+
+// Not Reassignable or Redeclarable
+const e = 5;
+// e = 10; // TypeError: Assignment to constant variable
+// const e = 20; // SyntaxError: Identifier 'e' has already been declared
+
+// Immutable Binding, but Mutable Content
+const obj = { key: 1 };
+obj.key = 2; // Allowed (modifying the content)
+console.log(obj.key); // 2
+
+// Hoisting
+// console.log(f); // ReferenceError: Cannot access 'f' before initialization
+const f = 30;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
