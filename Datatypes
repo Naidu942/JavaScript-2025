@@ -1,0 +1,98 @@
+-> Data Types : 
+  1. primitive Data Types: immutable and stored in memory.
+     1. String:
+       -> sequence of characters used to respresent text. enclosed in single('), double(") and backtips(`) for template literals;
+       -> template literals are used for interpolation.
+        ex :  let s = "RRR";  let str1 = `Hi ${s}`;
+      -> Strings are immutable . can't modify the characters, only reassign is allowed.
+     2. Numbers :
+       -> integers and decimals.
+       -> Numbers are 64 bit floating point values.
+       -> Special values include Infinity, -Infinity, and NaN (Not-a-Number).
+       -> Use Number.isNaN() to check for NaN.
+     3. boolean :
+       -> represents logical values like true or false.
+       -> Use Boolean logic (&&, ||, !) for conditions.
+       -> Falsy values: 0, "" (empty string), null, undefined, NaN, and false.
+       -> Everything else is truthy (e.g., non-empty strings, non-zero numbers).
+
+
+ 2. Non-Primitive Data Types: mutable(change) and stored as reference in memory.
+   1. Objects : 
+      -> stored as key-value pair. keys are strings and symbols and values are of any datatype.
+      -> objects are dynamic and can have properties added or removed.
+      -> use Object.keys(), Object.values(), Object.entries().
+      -> compare object by reference, not by values.
+      -> Access properties:
+           1. Dot Notation.
+           2. Bracket Notation.
+      ex : // Object declaration
+          let person = {
+                name: "John",
+                age: 30,
+                isAdmin: true
+          };
+
+          // Access properties
+          console.log(person.name); // "John" (dot notation)
+          console.log(person["age"]); // 30 (bracket notation)
+          
+          // Add or modify properties
+          person.age = 31;
+          person["gender"] = "male";
+          console.log(person);
+          
+          // Delete a property
+          delete person.isAdmin;
+          
+          // Object methods
+          console.log(Object.keys(person)); // ["name", "age", "gender"]
+          console.log(Object.values(person)); // ["John", 31, "male"]
+
+    2. Arrays :
+      -> stores values in an ordered list.
+      -> they are type of objects, but use numerics for indices.
+      -> arrays are zero-indexed.
+      -> Use for, forEach, map, filter, reduce for iteration and transformation.
+      -> Mutable methods (push, pop, shift, unshift) modify the array, while immutable methods (map, filter) return a new array.
+      ex : // Array declaration
+          let fruits = ["apple", "banana", "cherry"];
+          
+          // Access elements
+          console.log(fruits[1]); // "banana"
+          
+          // Add/Remove elements
+          fruits.push("date"); // Add to the end
+          fruits.pop(); // Remove from the end
+          fruits.unshift("apricot"); // Add to the beginning
+          fruits.shift(); // Remove from the beginning
+          
+          // Array methods
+          console.log(fruits.length); // 3
+          console.log(fruits.includes("banana")); // true
+          console.log(fruits.indexOf("cherry")); // 2
+          console.log(fruits.join(", ")); // "apple, banana, cherry"
+
+    3. null:
+      -> Represents the intentional absence of any value.
+
+      let x = null;
+      console.log(x); // null
+      console.log(typeof x); // "object" (quirk of JavaScript)
+
+    4. undefined :
+      -> Represents a variable that has been declared but not initialized.
+  
+      let y;
+      console.log(y); // undefined
+      console.log(typeof y); // "undefined"
+    
+
+
+
+
+
+
+
+
+
